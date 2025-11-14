@@ -1,0 +1,47 @@
+
+/* ===== THEME POLIMENTO VISUAL ===== */
+:root{
+  --container: 1100px;
+  --radius-card: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.container, .wrap, main, section { max-width: var(--container); margin-inline: auto; padding-inline: 1rem; }
+
+/* Tipografia */
+body { line-height: 1.6; }
+h1 { font-size: clamp(1.8rem, 1.2rem + 2vw, 2.4rem); font-weight: 800; letter-spacing: -.02em; }
+h2 { font-size: clamp(1.4rem, 1rem + 1.2vw, 1.8rem); font-weight: 700; margin-top: 1rem; }
+h3 { font-size: 1.1rem; font-weight: 700; }
+
+/* Cards gerais */
+.card, .box, .panel {
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(0,0,0,.06);
+  background: #fff;
+}
+:root.modo-escuro .card, :root.modo-escuro .box, :root.modo-escuro .panel {
+  background: #181818; border-color: #2a2a2a; box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+/* Botões */
+.btn, button, input[type="submit"]{
+  padding: .75rem 1.1rem; border-radius: 999px; border: 0; font-weight: 700; cursor: pointer;
+  background: #1f7a3a; color: #fff; box-shadow: 0 8px 20px rgba(31,122,58,.25);
+  transition: transform .2s ease, filter .2s ease;
+}
+.btn:hover, button:hover { filter: brightness(1.05); transform: translateY(-1px); }
+:root.modo-escuro .btn, :root.modo-escuro button { background:#2c9f52; }
+
+/* Navegação */
+header nav a { font-weight: 600; opacity:.9; }
+header nav a:hover, header nav a:focus { opacity:1; }
+
+/* Seções */
+section { padding-block: clamp(1.5rem, 1rem + 1vw, 2.5rem); }
+section .title { margin-bottom: .8rem; }
+
+/* Rodapé */
+footer { border-top: 1px solid rgba(0,0,0,.08); padding-block: 1.5rem; opacity:.9; }
+:root.modo-escuro footer { border-top-color: #2a2a2a; }
