@@ -1,0 +1,344 @@
+
+/* ===== A11Y UTILITIES (WCAG 2.1 AA) ===== */
+.skip-link {
+  position: absolute; left: -9999px; top: auto;
+  width: 1px; height: 1px; overflow: hidden;
+}
+.skip-link:focus { 
+  left: 1rem; top: 1rem; width: auto; height: auto;
+  padding: .5rem .75rem; background: #000; color: #fff; z-index: 9999;
+  outline: 3px solid #ff0;
+}
+
+/* Visible focus */
+:where(a, button, input, select, textarea, summary, [tabindex]) :focus,
+:where(a, button, input, select, textarea, summary, [tabindex]):focus {
+  outline: 3px solid #0a84ff; outline-offset: 3px;
+}
+
+/* Color tokens */
+:root {
+  --cor-texto: #111;
+  --cor-fundo: #ffffff;
+  --cor-link: #0b5bd3;
+}
+body { color: var(--cor-texto); background: var(--cor-fundo); }
+a { color: var(--cor-link); }
+
+/* Dark mode */
+:root.modo-escuro {
+  --cor-texto: #f5f5f5;
+  --cor-fundo: #121212;
+  --cor-link: #5aa9ff;
+}
+
+/* High contrast */
+:root.alto-contraste {
+  --cor-texto: #000;
+  --cor-fundo: #fff;
+  --cor-link: #000;
+  filter: contrast(115%);
+}
+:root.alto-contraste * {
+  background-image: none !important;
+  text-shadow: none !important;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* Optional helper for header theme buttons */
+.theme-controls { display: flex; gap: .5rem; align-items: center; }
+.theme-controls button {
+  padding: .5rem .75rem; border: 2px solid currentColor; border-radius: .5rem;
+  background: transparent; cursor: pointer;
+}
+
+
+/* ==== BOTÕES DE TEMA E CONTRASTE (versão estilizada) ==== */
+.theme-controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.theme-controls button {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #f0f0f0;
+  color: #222;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* Ícones (usando emoji simples para não precisar de biblioteca) */
+.theme-controls button::before {
+  font-size: 1rem;
+}
+
+#btn-escuro::before { content: "🌙"; }
+#btn-contraste::before { content: "⚡"; }
+
+/* Hover e foco */
+.theme-controls button:hover,
+.theme-controls button:focus-visible {
+  background: #e6e6e6;
+  outline: 2px solid #0a84ff;
+  outline-offset: 2px;
+}
+
+/* Estado ativo */
+.theme-controls button[aria-pressed="true"] {
+  background: #0066cc;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transform: scale(1.05);
+}
+
+/* Modo escuro invertido */
+:root.modo-escuro .theme-controls button {
+  background: #333;
+  color: #eee;
+}
+:root.modo-escuro .theme-controls button[aria-pressed="true"] {
+  background: #5aa9ff;
+  color: #000;
+}
+
+
+/* ===== AJUSTES DE CONTRASTE PARA MODO ESCURO ===== */
+
+/* Corrige caixas e cartões com fundo branco */
+:root.modo-escuro section,
+:root.modo-escuro article,
+:root.modo-escuro .card,
+:root.modo-escuro .box,
+:root.modo-escuro .container {
+  background-color: #1e1e1e !important;
+  color: #f0f0f0 !important;
+  border-color: #333 !important;
+}
+
+/* Corrige títulos e textos */
+:root.modo-escuro h1,
+:root.modo-escuro h2,
+:root.modo-escuro h3,
+:root.modo-escuro h4,
+:root.modo-escuro h5,
+:root.modo-escuro p,
+:root.modo-escuro li,
+:root.modo-escuro label {
+  color: #f5f5f5 !important;
+}
+
+/* Corrige botões verdes e texto dentro deles */
+:root.modo-escuro .btn,
+:root.modo-escuro button,
+:root.modo-escuro input[type="submit"] {
+  background-color: #0b5bd3 !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+:root.modo-escuro .btn:hover,
+:root.modo-escuro button:hover {
+  background-color: #0d6efd !important;
+}
+
+/* Corrige seções de “Como ajudar” e “Doações” */
+:root.modo-escuro .como-ajudar,
+:root.modo-escuro .doacoes {
+  background-color: #121212 !important;
+  color: #fafafa !important;
+  border-color: #333 !important;
+}
+
+/* Links em modo escuro */
+:root.modo-escuro a {
+  color: #66b3ff !important;
+}
+
+
+/* ===== FORMULÁRIOS EM MODO ESCURO ===== */
+:root.modo-escuro input[type="text"],
+:root.modo-escuro input[type="email"],
+:root.modo-escuro input[type="tel"],
+:root.modo-escuro input[type="date"],
+:root.modo-escuro input[type="number"],
+:root.modo-escuro input[type="search"],
+:root.modo-escuro input[type="password"],
+:root.modo-escuro select,
+:root.modo-escuro textarea {
+  background-color: #232323 !important;
+  color: #f5f5f5 !important;
+  border: 1px solid #3a3a3a !important;
+  box-shadow: none !important;
+}
+
+:root.modo-escuro input::placeholder,
+:root.modo-escuro textarea::placeholder {
+  color: #b8b8b8 !important;
+  opacity: 1 !important;
+}
+
+:root.modo-escuro fieldset {
+  border-color: #3a3a3a !important;
+}
+
+:root.modo-escuro legend,
+:root.modo-escuro label {
+  color: #eaeaea !important;
+}
+
+/* Estados de foco acessíveis */
+:root.modo-escuro input:focus,
+:root.modo-escuro select:focus,
+:root.modo-escuro textarea:focus {
+  outline: 3px solid #5aa9ff !important;
+  outline-offset: 2px !important;
+  border-color: #5aa9ff !important;
+}
+
+
+/* ===== CADASTRO: AJUSTES FORTES PARA MODO ESCURO ===== */
+:root.modo-escuro form,
+:root.modo-escuro .form,
+:root.modo-escuro .form-section {
+  color: #eaeaea !important;
+}
+
+/* painéis/caixas de seções do formulário */
+:root.modo-escuro form .card,
+:root.modo-escuro form .panel,
+:root.modo-escuro form .box,
+:root.modo-escuro form .group,
+:root.modo-escuro .cadastro .card,
+:root.modo-escuro .cadastro .panel,
+:root.modo-escuro .cadastro .box {
+  background: #181818 !important;
+  border-color: #2a2a2a !important;
+  color: #eee !important;
+}
+
+/* legendas e labels */
+:root.modo-escuro form legend,
+:root.modo-escuro form label {
+  color: #f0f0f0 !important;
+  text-shadow: none !important;
+}
+
+/* textos auxiliares */
+:root.modo-escuro form small,
+:root.modo-escuro form .help,
+:root.modo-escuro .help-text {
+  color: #cfcfcf !important;
+}
+
+/* campos */
+:root.modo-escuro form input,
+:root.modo-escuro form select,
+:root.modo-escuro form textarea {
+  background: #2a2a2a !important;
+  color: #f6f6f6 !important;
+  border: 1px solid #3a3a3a !important;
+}
+
+:root.modo-escuro form input::placeholder,
+:root.modo-escuro form textarea::placeholder {
+  color: #bbbbbb !important;
+  opacity: 1 !important;
+}
+
+/* calendário do input date visível no dark */
+:root.modo-escuro input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+/* select caret visível no dark (webkit) */
+:root.modo-escuro select {
+  background-image: none !important;
+}
+
+/* foco acessível */
+:root.modo-escuro form input:focus,
+:root.modo-escuro form select:focus,
+:root.modo-escuro form textarea:focus {
+  outline: 3px solid #5aa9ff !important;
+  outline-offset: 2px !important;
+  border-color: #5aa9ff !important;
+  box-shadow: 0 0 0 3px rgba(90,169,255,.25) !important;
+}
+
+/* botões do formulário */
+:root.modo-escuro form .btn,
+:root.modo-escuro form button[type="submit"],
+:root.modo-escuro form button[type="reset"] {
+  background: #0b5bd3 !important;
+  color: #fff !important;
+  border: none !important;
+}
+:root.modo-escuro form .btn:hover,
+:root.modo-escuro form button[type="submit"]:hover,
+:root.modo-escuro form button[type="reset"]:hover {
+  background: #0d6efd !important;
+}
+
+
+/* ===== CADASTRO (página): reforço de dark mode baseado em body.cadastro ===== */
+:root.modo-escuro body.cadastro { background: #101010 !important; color: #f0f0f0 !important; }
+
+:root.modo-escuro body.cadastro .section,
+:root.modo-escuro body.cadastro .form-section,
+:root.modo-escuro body.cadastro .form-container {
+  background: #121212 !important;
+  color: #f0f0f0 !important;
+  border-color: #2a2a2a !important;
+}
+
+:root.modo-escuro body.cadastro fieldset,
+:root.modo-escuro body.cadastro .fieldset,
+:root.modo-escuro body.cadastro .card,
+:root.modo-escuro body.cadastro .panel,
+:root.modo-escuro body.cadastro .box {
+  background: #181818 !important;
+  color: #f0f0f0 !important;
+  border-color: #2a2a2a !important;
+}
+
+:root.modo-escuro body.cadastro h1,
+:root.modo-escuro body.cadastro h2,
+:root.modo-escuro body.cadastro h3,
+:root.modo-escuro body.cadastro legend,
+:root.modo-escuro body.cadastro label {
+  color: #f5f5f5 !important;
+}
+
+/* inputs da página cadastro (reforço) */
+:root.modo-escuro body.cadastro input,
+:root.modo-escuro body.cadastro select,
+:root.modo-escuro body.cadastro textarea {
+  background: #242424 !important;
+  color: #f7f7f7 !important;
+  border: 1px solid #3a3a3a !important;
+}
+:root.modo-escuro body.cadastro input::placeholder,
+:root.modo-escuro body.cadastro textarea::placeholder {
+  color: #bdbdbd !important;
+}
+
+
+/* ===== LIGHTHOUSE: CONTRAST FIX (minimo, sem alterar layout) ===== */
+:root { --cor-texto: #111; --cor-fundo: #ffffff; --cor-link: #0b5bd3; }
+:root.modo-escuro { --cor-texto: #f5f5f5; --cor-fundo: #0e0e0e; --cor-link: #66b3ff; }
+/* textos fracos ganham contraste melhor */
+.text-muted, small, .help, .help-text { color: #5a5a5a; }
+:root.modo-escuro .text-muted, :root.modo-escuro small, :root.modo-escuro .help, :root.modo-escuro .help-text { color: #d0d0d0; }
