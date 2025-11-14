@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ação Solidária Brasil</title>
+<meta name="description" content="ONG focada em Segurança Alimentar, Educação e Inclusão Digital.">
+<link rel="stylesheet" href="css/style.css">
+<script defer src="js/masks.js"></script>
+
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="prefetch" href="projetos.html">
+  <link rel="prefetch" href="cadastro.html">
+  <link rel="stylesheet" href="css/a11y.css">
+<link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<div class="theme-controls"><button id="btn-contraste" type="button" aria-pressed="false">Alto contraste</button> <button id="btn-escuro" type="button" aria-pressed="false">Modo escuro</button></div>
+  <div class="container nav">
+    <!-- Logotipo -->
+    <h1 class="logo">
+      <a href="index.html" aria-label="Ir para a página inicial">Ação Solidária Brasil</a>
+    </h1>
+
+    <!-- Menu principal -->
+    <nav aria-label="Navegação principal">
+      <ul class="menu">
+        <li><a href="index.html" data-route="/">Início</a></li>
+        <li><a href="projetos.html" data-route="/projetos">Projetos</a></li>
+        <li><a href="cadastro.html" data-route="/cadastro">Cadastro</a></li>
+      </ul>
+    </nav>
+  </div>
+  <button class="hamburger" aria-label="Abrir menu">☰</button>
+</header>
+
+<div class="top-sub"><span class="subareas"></span></div>
+<main id="conteudo" class="container" tabindex="-1" role="main">
+  <section id="apresentacao" aria-labelledby="tit-apresentacao">
+    <h2 id="tit-apresentacao">Apresentação</h2>
+    
+<div class="hero-wrap">
+  <div class="hero-card">
+    <img src="assets/media/projetos.jpg" alt="Ação Solidária Brasil" loading="lazy" width="1200" height="600">
+  </div>
+</div>
+<p class="tagline">Junte-se a nós para transformar realidades</p>
+
+
+<p>Somos uma organização sem fins lucrativos que acredita no poder da solidariedade para transformar vidas. 
+Atuamos com total transparência e compromisso social, desenvolvendo projetos que promovem segurança alimentar, educação e inclusão digital em comunidades de todo o Brasil. 
+Nosso trabalho é guiado pela responsabilidade e pelo impacto positivo mensurável, fortalecendo famílias e construindo um futuro mais justo e sustentável.</p>
+
+    <p></p>
+  </section>
+
+
+
+
+
+
+  <section aria-labelledby="tit-como-ajudar" class="cards">
+    <h2 id="tit-como-ajudar">Como ajudar</h2>
+    <article class="card">
+      <h3>Seja voluntário</h3>
+      <p>Inscreva-se para participar das nossas ações presenciais e online.</p>
+      <a class="btn" href="cadastro.html">Quero me cadastrar</a>
+    </article>
+    <article class="card">
+      <h3>Doe</h3>
+      <p>Sua contribuição mantém nossos projetos ativos e alcançando mais pessoas.</p>
+      <a class="btn" href="projetos.html">Conheça os projetos</a>
+    </article>
+  </section>
+
+<section id="info-doacoes" aria-labelledby="tit-doacoes">
+  <h2 id="tit-doacoes">Informações para Doações</h2>
+  <ul class="lista-doacoes">
+    <li><strong>PIX:</strong> 00.111.222/0001-33</li>
+    <li><strong>Banco Solidário:</strong> Ag. 1234 — C/C 56789-0</li>
+    <li><strong>Telefone para envio do comprovante:</strong> (11) 99999-0000</li>
+  </ul>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2025 Ação Solidária Brasil — Todos os direitos reservados.</p>
+  </div>
+</footer>
+  <script src="js/templates.js"></script>
+  <script src="js/router.js"></script>
+
+  <script src="js/menu.js"></script>
+  <script src="js/form.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  try{
+    var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    var map = {'index.html':'/','projetos.html':'/projetos','cadastro.html':'/cadastro'};
+    var route = map[path] || '/';
+    document.querySelectorAll('nav ul.menu a').forEach(function(a){
+      a.classList.toggle('is-active', (a.getAttribute('data-route')===route));
+      if (a.classList.contains('is-active')) a.setAttribute('aria-current','page');
+    });
+  }catch(e){}
+});
+</script>
+
+<script src="js/a11y.js"></script>
+</body>
+</html>

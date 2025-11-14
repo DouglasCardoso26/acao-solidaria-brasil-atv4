@@ -1,0 +1,17 @@
+{
+  "name": "acao-solidaria-brasil",
+  "private": true,
+  "scripts": {
+    "min:css": "npx clean-css-cli -o dist/css/style.min.css css/style.css css/a11y.css",
+    "min:js": "npx terser -o dist/js/main.min.js --compress --mangle js/*.js",
+    "min:html": "npx html-minifier-terser --collapse-whitespace --remove-comments --minify-css true --minify-js true -o dist/index.html index.html",
+    "img:opt": "npx sharp -i assets -o dist/assets --jpeg mozjpeg --webp",
+    "build": "rm -rf dist && mkdir -p dist/css dist/js dist/assets && npm run min:css && npm run min:js && npm run min:html && npm run img:opt"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "html-minifier-terser": "^7.2.0",
+    "sharp-cli": "^4.2.0",
+    "terser": "^5.31.0"
+  }
+}
