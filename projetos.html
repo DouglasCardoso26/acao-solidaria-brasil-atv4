@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ação Solidária Brasil</title>
+<meta name="description" content="ONG focada em Segurança Alimentar, Educação e Inclusão Digital.">
+<link rel="stylesheet" href="css/style.css">
+<script defer src="js/masks.js"></script>
+
+  <link rel="stylesheet" href="css/design-system.css">
+
+  
+  <style>
+    
+    .grid-projetos {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 40px;
+      text-align: center;
+    }
+    .grid-projetos figure {
+      margin: 0;
+      flex: 1 1 280px;
+      max-width: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .grid-projetos img {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      display: block;
+    }
+    .grid-projetos figcaption {
+      margin-top: 8px;
+      font-weight: 600;
+      text-align: center;
+      color: #003366;
+    }
+  </style>
+
+
+  <link rel="prefetch" href="projetos.html">
+  <link rel="prefetch" href="cadastro.html">
+  <link rel="stylesheet" href="css/a11y.css">
+<link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<div class="theme-controls"><button id="btn-contraste" type="button" aria-pressed="false">Alto contraste</button> <button id="btn-escuro" type="button" aria-pressed="false">Modo escuro</button></div>
+  <div class="container nav">
+    <!-- Logotipo -->
+    <h1 class="logo">
+      <a href="index.html" aria-label="Ir para a página inicial">Ação Solidária Brasil</a>
+    </h1>
+
+    <!-- Menu principal -->
+    <nav aria-label="Navegação principal">
+      <ul class="menu">
+        <li><a href="index.html" data-route="/">Início</a></li>
+        <li><a href="projetos.html" data-route="/projetos">Projetos</a></li>
+        <li><a href="cadastro.html" data-route="/cadastro">Cadastro</a></li>
+      </ul>
+    </nav>
+  </div>
+  <button class="hamburger" aria-label="Abrir menu">☰</button>
+</header>
+
+
+
+<main class="container" id="conteudo" tabindex="-1" role="main">
+  
+
+  <section id="galeria-projetos" aria-labelledby="tit-projetos">
+    <div class="grid-projetos">
+      <figure>
+        <img loading="lazy" src="assets/media/INDE_3.jpg" alt="Segurança Alimentar" width="2048" height="2048">
+        <figcaption>Segurança Alimentar</figcaption>
+      </figure>
+      <figure>
+        <img loading="lazy" src="assets/media/INDE_2.jpg" alt="Educação e Oficinas" width="2048" height="2048">
+        <figcaption>Educação e Oficinas</figcaption>
+      </figure>
+      <figure>
+        <img loading="lazy" src="assets/media/INDE_1.jpg" alt="Inclusão Digital" width="2048" height="2048">
+        <figcaption>Inclusão Digital</figcaption>
+      </figure>
+    </div>
+  </section>
+</main>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2025 Ação Solidária Brasil — Todos os direitos reservados.</p>
+  </div>
+</footer>
+  <script src="js/templates.js"></script>
+  <script src="js/router.js"></script>
+
+  <script src="js/menu.js"></script>
+  <script src="js/form.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  try{
+    var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    var map = {'index.html':'/','projetos.html':'/projetos','cadastro.html':'/cadastro'};
+    var route = map[path] || '/';
+    document.querySelectorAll('nav ul.menu a').forEach(function(a){
+      a.classList.toggle('is-active', (a.getAttribute('data-route')===route));
+      if (a.classList.contains('is-active')) a.setAttribute('aria-current','page');
+    });
+  }catch(e){}
+});
+</script>
+
+<script src="js/a11y.js"></script>
+</body>
+</html>

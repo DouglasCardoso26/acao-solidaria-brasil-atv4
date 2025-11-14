@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ação Solidária Brasil</title>
+<meta name="description" content="ONG focada em Segurança Alimentar, Educação e Inclusão Digital.">
+<link rel="stylesheet" href="css/style.css">
+<script defer src="js/masks.js"></script>
+
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="prefetch" href="projetos.html">
+  <link rel="prefetch" href="cadastro.html">
+  <link rel="stylesheet" href="css/a11y.css">
+<link rel="stylesheet" href="css/theme.css">
+</head>
+<body class="cadastro">
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<div class="theme-controls"><button id="btn-contraste" type="button" aria-pressed="false">Alto contraste</button> <button id="btn-escuro" type="button" aria-pressed="false">Modo escuro</button></div>
+  <div class="container nav">
+    <!-- Logotipo -->
+    <h1 class="logo">
+      <a href="index.html" aria-label="Ir para a página inicial">Ação Solidária Brasil</a>
+    </h1>
+
+    <!-- Menu principal -->
+    <nav aria-label="Navegação principal">
+      <ul class="menu">
+        <li><a href="index.html" data-route="/">Início</a></li>
+        <li><a href="projetos.html" data-route="/projetos">Projetos</a></li>
+        <li><a href="cadastro.html" data-route="/cadastro">Cadastro</a></li>
+      </ul>
+    </nav>
+  </div>
+  <button class="hamburger" aria-label="Abrir menu">☰</button>
+</header>
+
+<main class="container" id="conteudo" tabindex="-1" role="main">
+  
+
+  <form id="form-cadastro" action="#" method="post" novalidate>
+    <fieldset>
+      <legend>Dados Pessoais</legend>
+      <div class="grid">
+        <div class="campo">
+          <label for="nome">Nome completo *</label>
+          <input id="nome" name="nome" type="text" required minlength="8" autocomplete="name">
+        </div>
+
+        <div class="campo">
+          <label for="cpf">CPF *</label>
+          <input id="cpf" name="cpf" type="text" inputmode="numeric" required aria-describedby="cpf-help"
+                 pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00">
+          <small id="cpf-help">Formato: 000.000.000-00</small>
+        </div>
+
+        <div class="campo">
+          <label for="nascimento">Data de Nascimento *</label>
+          <input id="nascimento" name="nascimento" type="date" required>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Contato</legend>
+      <div class="grid">
+        <div class="campo">
+          <label for="email">E-mail *</label>
+          <input id="email" name="email" type="email" required autocomplete="email">
+        </div>
+
+        <div class="campo">
+          <label for="telefone">Telefone *</label>
+          <input id="telefone" name="telefone" type="tel" required inputmode="tel"
+                 pattern="\(\d{2}\) \d{4,5}-\d{4}" placeholder="(00) 00000-0000">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Endereço</legend>
+      <div class="grid">
+        <div class="campo">
+          <label for="cep">CEP *</label>
+          <input id="cep" name="cep" type="text" inputmode="numeric" required
+                 pattern="\d{5}-\d{3}" placeholder="00000-000">
+        </div>
+        <div class="campo">
+          <label for="endereco">Endereço *</label>
+          <input id="endereco" name="endereco" type="text" required autocomplete="address-line1">
+        </div>
+        <div class="campo">
+          <label for="cidade">Cidade *</label>
+          <input id="cidade" name="cidade" type="text" required autocomplete="address-level2">
+        </div>
+        <div class="campo">
+          <label for="estado">Estado *</label>
+          <select id="estado" name="estado" required autocomplete="address-level1">
+            <option value="" selected disabled>Selecione</option>
+            <option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option>
+            <option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option>
+            <option>MT</option><option>MS</option><option>MG</option><option>PA</option><option>PB</option>
+            <option>PR</option><option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+            <option>RS</option><option>RO</option><option>RR</option><option>SC</option><option>SP</option>
+            <option>SE</option><option>TO</option>
+          </select>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Interesse</legend>
+      <div class="grid">
+        <div class="campo">
+          <label for="tipo">Como deseja ajudar?</label>
+          <select id="tipo" name="tipo">
+            <option>Voluntariado</option>
+            <option>Doação</option>
+            <option>Ambos</option>
+          </select>
+        </div>
+        <div class="campo full">
+          <label for="mensagem">Mensagem (opcional)</label>
+          <textarea id="mensagem" name="mensagem" rows="4" maxlength="500"></textarea>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="acoes">
+      <button class="btn" type="submit">Enviar</button>
+      <button class="btn secundario" type="reset">Limpar</button>
+    </div>
+
+    <p class="aviso">Ao enviar, você concorda com nossa <a href="#" rel="nofollow">política de privacidade</a>.</p>
+  </form>
+
+
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2025 Ação Solidária Brasil — Todos os direitos reservados.</p>
+  </div>
+</footer>
+  <script src="js/templates.js"></script>
+  <script src="js/router.js"></script>
+
+<script>
+  // Pequena validação extra de idade (>= 16)
+  document.getElementById('form-cadastro').addEventListener('submit', function(e) {
+    const nasc = document.getElementById('nascimento').value;
+    if (nasc) {
+      const d = new Date(nasc);
+      const hoje = new Date();
+      const idade = (hoje - d) / (1000*60*60*24*365.25);
+      if (idade < 16) {
+        e.preventDefault();
+        alert('É necessário ter ao menos 16 anos para se cadastrar.');
+      }
+    }
+  });
+</script>
+  <script src="js/menu.js"></script>
+  <script src="js/form.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  try{
+    var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    var map = {'index.html':'/','projetos.html':'/projetos','cadastro.html':'/cadastro'};
+    var route = map[path] || '/';
+    document.querySelectorAll('nav ul.menu a').forEach(function(a){
+      a.classList.toggle('is-active', (a.getAttribute('data-route')===route));
+      if (a.classList.contains('is-active')) a.setAttribute('aria-current','page');
+    });
+  }catch(e){}
+});
+</script>
+
+<script src="js/a11y.js"></script>
+</body>
+</html>
